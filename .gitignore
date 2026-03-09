@@ -1,5 +1,5 @@
 .venv/
-rag_venv/
+.rag_venv/
 .python-version/
 data/
 uv.lock/

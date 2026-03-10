@@ -1,7 +1,7 @@
 import os
 from datetime import datetime
 from werkzeug.utils import secure_filename
-from langchain_community.document_loaders import UnstructuredPDFLoader
+from langchain_community.document_loaders import PyPDFLoader  # swapped
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from get_vector_db import get_vector_db
 
@@ -17,7 +17,7 @@ def save_file(file):
     return file_path
 
 def load_and_split_data(file_path):
-    loader = UnstructuredPDFLoader(file_path=file_path)
+    loader = PyPDFLoader(file_path=file_path)
     data = loader.load()
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=7500, chunk_overlap=100)
     return text_splitter.split_documents(data)
@@ -28,7 +28,7 @@ def embed(file):
         chunks = load_and_split_data(file_path)
         db = get_vector_db()
         db.add_documents(chunks)
-        db.persist()
+        # db.persist() — removed, chromadb 0.4+ auto-persists
         os.remove(file_path)
         return True
     return False

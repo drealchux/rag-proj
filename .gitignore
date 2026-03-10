@@ -3,4 +3,5 @@ rag_venv/
 .python-version/
 data/
 uv.lock/
+__pycache__
 .env

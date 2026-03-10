@@ -5,3 +5,4 @@ data/
 uv.lock/
 __pycache__
 .env
+_temp/

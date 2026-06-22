@@ -1,6 +1,12 @@
-# Semantic Span RAG API
+# Semantic Span
 
-A production-ready **Retrieval-Augmented Generation (RAG)** system built with Python, LangChain, ChromaDB, and Ollama. Upload any PDF document and query it intelligently using a locally-running LLM — no cloud dependencies, no data leaving your machine.
+This project is a production-ready **Retrieval-Augmented Generation (RAG)** system designed to enable natural language interaction with PDF documents.
+
+Users can upload one or more PDF files and query their contents directly using plain language. The system retrieves relevant sections from the documents and generates accurate, context-aware responses, eliminating the need for manual search or reading through large files.
+
+The solution is built using Python, LangChain, ChromaDB, and Ollama, and runs entirely on a local machine. This ensures full data privacy, as no information is transmitted to external services or cloud-based APIs.
+
+At its core, the system combines semantic search with a locally hosted large language model to deliver a secure, efficient, and self-contained document question-answering pipeline suitable for production use cases.
 
 ---
 
@@ -55,7 +61,7 @@ semanticspan/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/end_to_end_rag.git
+git clone https://github.com/your-username/semanticspan.git
 cd end_to_end_rag
 ```
 
@@ -93,7 +99,7 @@ Create a `.env` file in the project root:
 ```dotenv
 TEMP_FOLDER=./_temp
 CHROMA_PATH=chroma
-COLLECTION_NAME=end_to_end_rag
+COLLECTION_NAME=semanticspan
 LLM_MODEL=llama3.2:1b
 TEXT_EMBEDDING_MODEL=nomic-embed-text
 OLLAMA_HOST=http://localhost:11434
@@ -216,7 +222,3 @@ werkzeug
 - Add document metadata tagging so queries can be scoped to specific files
 
 ---
-
-## License
-
-MIT License. See `LICENSE` for details.

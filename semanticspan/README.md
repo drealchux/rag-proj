@@ -1,4 +1,4 @@
-# End-to-End RAG API
+# End-to-End RAG API Semantic Span RAG API
 
 A production-ready **Retrieval-Augmented Generation (RAG)** system built with Python, LangChain, ChromaDB, and Ollama. Upload any PDF document and query it intelligently using a locally-running LLM — no cloud dependencies, no data leaving your machine.
 
@@ -15,41 +15,8 @@ Everything runs locally via Ollama. No OpenAI key required.
 ## Architecture
 
 ```
-User Query
-    │
-    ▼
-Flask REST API (/query)
-    │
-    ▼
-Query Rewriter (LLM generates 4 query variants)
-    │
-    ▼
-ChromaDB Vector Store (semantic search across variants)
-    │
-    ▼
-Top-k Chunks Retrieved + Deduplicated
-    │
-    ▼
-LLM answers using ONLY retrieved context
-    │
-    ▼
-JSON Response
-```
+![RAG Architecture](../docs/architecture.png)
 
-```
-PDF Upload
-    │
-    ▼
-Flask REST API (/embed)
-    │
-    ▼
-PyPDFLoader → RecursiveCharacterTextSplitter
-    │
-    ▼
-OllamaEmbeddings (nomic-embed-text)
-    │
-    ▼
-ChromaDB (persisted locally)
 ```
 
 ---
@@ -70,7 +37,7 @@ ChromaDB (persisted locally)
 ## Project Structure
 
 ```
-end_to_end_rag/
+semanticspan/
 ├── app.py              # Flask API — exposes /embed and /query endpoints
 ├── embed.py            # PDF ingestion pipeline (load → split → embed → store)
 ├── query.py            # Query pipeline (rewrite → retrieve → generate)

@@ -14,11 +14,7 @@ Everything runs locally via Ollama. No OpenAI key required.
 
 ## Architecture
 
-```
 ![RAG Architecture](docs/architecture.png)
-
-```
-
 ---
 
 ## Tech Stack

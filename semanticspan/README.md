@@ -1,4 +1,4 @@
-# End-to-End RAG API Semantic Span RAG API
+# Semantic Span RAG API
 
 A production-ready **Retrieval-Augmented Generation (RAG)** system built with Python, LangChain, ChromaDB, and Ollama. Upload any PDF document and query it intelligently using a locally-running LLM — no cloud dependencies, no data leaving your machine.
 
